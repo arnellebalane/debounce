@@ -4,7 +4,7 @@
   "description": "Limit the rate at which a callback function is executed",
   "main": "debounce.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-tape-runner debounce.tests.js | tap-color"
   },
   "keywords": [
     "debounce"
