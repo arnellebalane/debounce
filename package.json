@@ -18,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/arnellebalane/debounce/issues"
   },
-  "homepage": "https://github.com/arnellebalane/debounce#readme"
+  "homepage": "https://github.com/arnellebalane/debounce#readme",
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
 }
