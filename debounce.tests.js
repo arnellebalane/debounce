@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import debounce from './debounce';
 
 const asyncTimeout = (callback, delay) => new Promise(
-    resolve => setTimeout(resolve, delay)
+    resolve => setTimeout(() => resolve(callback()), delay)
 );
 
 describe('debounce arguments', async assert => {
