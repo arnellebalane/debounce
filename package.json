@@ -2,8 +2,14 @@
   "name": "@arnellebalane/debounce",
   "version": "0.0.0",
   "description": "Limit the rate at which a callback function is executed",
-  "main": "debounce.js",
+  "main": "dist/debounce.js",
+  "source": "debounce.js",
   "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "microbundle --name debounce",
+    "prebuild:watch": "npm run clean",
+    "build:watch": "microbundle --name debounce --watch",
     "test": "babel-tape-runner debounce.tests.js | tap-color"
   },
   "keywords": [
