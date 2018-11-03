@@ -36,7 +36,7 @@ describe('debounce arguments', async assert => {
     });
 });
 
-describe('debounce(callback, duration, runAtStart=true): running at head end', async assert => {
+describe('debounce(callback, duration, {immediate=true}): running at head end', async assert => {
     (() => {
         const callback = sinon.spy();
         const debounced = debounce(callback, 20);
@@ -116,10 +116,10 @@ describe('debounce(callback, duration, runAtStart=true): running at head end', a
     });
 });
 
-describe('debounce(callback, duration, runAtStart=false): running at tail end', async assert => {
+describe('debounce(callback, duration, {immediate=false}): running at tail end', async assert => {
     await new Promise(async resolve => {
         const callback = sinon.spy();
-        const debounced = debounce(callback, 20, false);
+        const debounced = debounce(callback, 20, {immediate: false});
 
         debounced();
 
@@ -144,7 +144,7 @@ describe('debounce(callback, duration, runAtStart=false): running at tail end', 
 
     await new Promise(async resolve => {
         const callback = sinon.spy();
-        const debounced = debounce(callback, 20, false);
+        const debounced = debounce(callback, 20, {immediate: false});
 
         debounced();
         await asyncTimeout(debounced, 10);
@@ -164,7 +164,7 @@ describe('debounce(callback, duration, runAtStart=false): running at tail end', 
 
     await new Promise(async resolve => {
         const callback = sinon.spy();
-        const debounced = debounce(callback, 20, false);
+        const debounced = debounce(callback, 20, {immediate: false});
 
         debounced();
         await asyncTimeout(debounced, 20);
@@ -184,7 +184,7 @@ describe('debounce(callback, duration, runAtStart=false): running at tail end', 
 
     await new Promise(async resolve => {
         const callback = sinon.spy();
-        const debounced = debounce(callback, 20, false);
+        const debounced = debounce(callback, 20, {immediate: false});
 
         debounced();
         await asyncTimeout(debounced, 25);

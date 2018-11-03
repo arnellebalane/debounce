@@ -1,4 +1,4 @@
-export default function debounce(callback, duration, runAtStart=true) {
+export default function debounce(callback, duration, {immediate=true}={}) {
     if (typeof callback !== 'function') {
         throw new TypeError('Invalid type for callback parameter.');
     } else if (typeof duration !== 'number') {
@@ -8,14 +8,14 @@ export default function debounce(callback, duration, runAtStart=true) {
     let timer = null;
 
     return function() {
-        if (runAtStart && !timer) {
+        if (immediate && !timer) {
             callback(...arguments);
         }
 
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
-            if (!runAtStart) {
+            if (!immediate) {
                 callback(...arguments);
             }
         }, duration);
