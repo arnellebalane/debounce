@@ -1,6 +1,6 @@
 {
   "name": "@arnellebalane/debounce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Limit the rate at which a callback function is executed",
   "main": "dist/debounce.js",
   "source": "debounce.js",
