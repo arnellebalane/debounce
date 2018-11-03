@@ -7,16 +7,16 @@ export default function debounce(callback, duration, runAtStart=true) {
 
     let timer = null;
 
-    return (...args) => {
+    return function() {
         if (runAtStart && !timer) {
-            callback(...args);
+            callback(...arguments);
         }
 
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
             if (!runAtStart) {
-                callback(...args);
+                callback(...arguments);
             }
         }, duration);
     };
