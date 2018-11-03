@@ -44,7 +44,7 @@ This function is exposed as `window.debounce` when not using AMD or CommonJS.
     - `duration` (`Number`): The delay, in milliseconds, between successive calls.
       Calls that are less that this value apart from each other are treated as one.
     - `options` (`Object`, optional):
-      - `runAtStart` (`Boolean`, default=`true`). Whether to execute the callback
+      - `immediate` (`Boolean`, default=`true`). Whether to execute the callback
         at the beginning of the first call or at the end of the last call.
   - Returns: `Function`. Everything that's passed to this returned function is
     forwarded to the given callback function.
