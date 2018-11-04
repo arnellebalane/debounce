@@ -7,6 +7,9 @@ node_js:
 
 cache: npm
 
+before_script:
+  - npm run lint
+
 script: npm test
 
 branches:
