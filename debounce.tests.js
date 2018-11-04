@@ -2,10 +2,9 @@ import {describe, Try} from 'riteway';
 import sinon from 'sinon';
 import debounce from './debounce';
 
-const asyncTimeout = (callback, delay) => new Promise(
-    resolve => setTimeout(() => resolve(callback()), delay)
-);
+const asyncTimeout = (callback, delay) => new Promise(resolve => setTimeout(() => resolve(callback()), delay));
 
+// eslint-disable-next-line require-await
 describe('debounce arguments', async assert => {
     assert({
         given: 'no arguments',
@@ -24,14 +23,14 @@ describe('debounce arguments', async assert => {
     assert({
         given: 'no duration argument',
         should: 'throw an error',
-        actual: Try(debounce, () => {}),
+        actual: Try(debounce, () => { /* Intentionally empty. */ }),
         expected: new TypeError()
     });
 
     assert({
         given: 'a non-numeric duration',
         should: 'throw an error',
-        actual: Try(debounce, () => {}, 'duration'),
+        actual: Try(debounce, () => { /* Intentionally empty. */ }, 'duration'),
         expected: new TypeError()
     });
 });
@@ -130,7 +129,7 @@ describe('debounce(callback, duration, {immediate=false}): running at tail end',
             expected: true
         });
 
-        await asyncTimeout(() => {}, 20);
+        await asyncTimeout(() => { /* Intentionally empty. */ }, 20);
 
         assert({
             given: 'a callback, a duration, and tail flag',
@@ -150,7 +149,7 @@ describe('debounce(callback, duration, {immediate=false}): running at tail end',
         await asyncTimeout(debounced, 10);
         await asyncTimeout(debounced, 10);
         await asyncTimeout(debounced, 10);
-        await asyncTimeout(() => {}, 20);
+        await asyncTimeout(() => { /* Intentionally empty. */ }, 20);
 
         assert({
             given: 'call intervals less than the duration',
@@ -170,7 +169,7 @@ describe('debounce(callback, duration, {immediate=false}): running at tail end',
         await asyncTimeout(debounced, 20);
         await asyncTimeout(debounced, 20);
         await asyncTimeout(debounced, 20);
-        await asyncTimeout(() => {}, 20);
+        await asyncTimeout(() => { /* Intentionally empty. */ }, 20);
 
         assert({
             given: 'call intervals equal to the duration',
@@ -190,7 +189,7 @@ describe('debounce(callback, duration, {immediate=false}): running at tail end',
         await asyncTimeout(debounced, 25);
         await asyncTimeout(debounced, 25);
         await asyncTimeout(debounced, 25);
-        await asyncTimeout(() => {}, 20);
+        await asyncTimeout(() => { /* Intentionally empty. */ }, 20);
 
         assert({
             given: 'call intervals greater than the duration',

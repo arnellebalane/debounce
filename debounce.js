@@ -7,17 +7,17 @@ export default function debounce(callback, duration, {immediate=true}={}) {
 
     let timer = null;
 
-    return function() {
+    return function debounced(...args) {
         if (immediate && !timer) {
-            callback(...arguments);
+            callback(...args);
         }
 
         clearTimeout(timer);
         timer = setTimeout(() => {
             timer = null;
             if (!immediate) {
-                callback(...arguments);
+                callback(...args);
             }
         }, duration);
     };
-};
+}
