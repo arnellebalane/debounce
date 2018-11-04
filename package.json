@@ -10,7 +10,8 @@
     "build": "microbundle --name debounce",
     "prebuild:watch": "npm run clean",
     "build:watch": "microbundle --name debounce --watch",
-    "test": "nyc -r html -x *.tests.js babel-tape-runner debounce.tests.js | tap-color && nyc report"
+    "test": "nyc -r html -x *.tests.js babel-tape-runner debounce.tests.js | tap-color && nyc report",
+    "lint": "eslint *.js"
   },
   "keywords": [
     "debounce"
@@ -41,6 +42,24 @@
     "presets": [
       "@babel/preset-env"
     ]
+  },
+  "eslintConfig": {
+    "extends": ["eslint-config-arnellebalane"],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2017,
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "new-cap": ["off"]
+    }
   },
   "publishConfig": {
     "access": "public"
