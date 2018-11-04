@@ -201,3 +201,19 @@ describe('debounce(callback, duration, {immediate=false}): running at tail end',
         resolve();
     });
 });
+
+// eslint-disable-next-line require-await
+describe('debounced function', async assert => {
+    const callback = sinon.spy();
+    const debounced = debounce(callback, 20);
+    const args = [1, 'string', [1, 2, 3], {a: 1}];
+
+    debounced(...args);
+
+    assert({
+        given: 'any arguments',
+        should: 'pass those arguments to the original callback',
+        actual: callback.calledOnceWithExactly(...args),
+        expected: true
+    });
+});
