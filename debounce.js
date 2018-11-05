@@ -8,7 +8,7 @@ export default function debounce(
     callback: Function,
     duration: number,
     {immediate=true}: DebounceOptions={}
-) {
+): Function {
     if (typeof callback !== 'function') {
         throw new TypeError('Invalid type for callback parameter.');
     } else if (typeof duration !== 'number') {
