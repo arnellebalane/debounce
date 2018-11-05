@@ -1,9 +1,13 @@
 // @flow
 
+type DebounceOptions = {
+    immediate?: boolean
+};
+
 export default function debounce(
     callback: Function,
     duration: number,
-    {immediate=true}: Object={}
+    {immediate=true}: DebounceOptions={}
 ) {
     if (typeof callback !== 'function') {
         throw new TypeError('Invalid type for callback parameter.');
