@@ -47,8 +47,13 @@
     ]
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": [
-      "eslint-config-arnellebalane"
+      "eslint-config-arnellebalane",
+      "plugin:flowtype/recommended"
+    ],
+    "plugins": [
+      "flowtype"
     ],
     "parserOptions": {
       "sourceType": "module",
