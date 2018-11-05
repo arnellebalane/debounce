@@ -46,6 +46,9 @@
   "babel": {
     "presets": [
       "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-flow-strip-types"
     ]
   },
   "eslintConfig": {
