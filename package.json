@@ -11,7 +11,8 @@
     "prebuild:watch": "npm run clean",
     "build:watch": "microbundle --name debounce --watch",
     "test": "nyc -r html -x *.tests.js babel-tape-runner debounce.tests.js | tap-color && nyc report",
-    "lint": "eslint *.js"
+    "lint": "eslint *.js",
+    "flow": "flow"
   },
   "keywords": [
     "debounce"
