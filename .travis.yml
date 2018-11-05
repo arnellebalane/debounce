@@ -8,6 +8,7 @@ node_js:
 cache: npm
 
 before_script:
+  - npm run flow
   - npm run lint
 
 script: npm test
