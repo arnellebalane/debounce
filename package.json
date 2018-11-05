@@ -29,6 +29,7 @@
   "homepage": "https://github.com/arnellebalane/debounce#readme",
   "devDependencies": {
     "@babel/core": "7.1.2",
+    "@babel/plugin-transform-flow-strip-types": "7.0.0",
     "@babel/preset-env": "7.1.0",
     "babel-eslint": "10.0.1",
     "babel-tape-runner": "3.0.0",
