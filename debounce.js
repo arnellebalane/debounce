@@ -1,4 +1,14 @@
-export default function debounce(callback, duration, {immediate=true}={}) {
+// @flow
+
+type DebounceOptions = {
+    immediate?: boolean
+};
+
+export default function debounce(
+    callback: Function,
+    duration: number,
+    {immediate=true}: DebounceOptions={}
+): Function {
     if (typeof callback !== 'function') {
         throw new TypeError('Invalid type for callback parameter.');
     } else if (typeof duration !== 'number') {
@@ -7,12 +17,15 @@ export default function debounce(callback, duration, {immediate=true}={}) {
 
     let timer = null;
 
-    return function debounced(...args) {
+    return function debounced(...args: any) {
         if (immediate && !timer) {
             callback(...args);
         }
 
-        clearTimeout(timer);
+        if (timer) {
+            clearTimeout(timer);
+        }
+
         timer = setTimeout(() => {
             timer = null;
             if (!immediate) {

@@ -1,3 +1,5 @@
+// @flow
+
 import {describe, Try} from 'riteway';
 import sinon from 'sinon';
 import debounce from './debounce';
